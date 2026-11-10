@@ -26,7 +26,9 @@ echo "[railway] JWT keypair loaded"
 # port accordingly (fallback 8080 = the pinned domain targetPort).
 LISTEN_PORT="${WGER_LISTEN_PORT:-${PORT:-8080}}"
 sed "s/__WGER_LISTEN__/${LISTEN_PORT}/" /etc/nginx/railway.conf > /home/wger/nginx-temp/nginx.conf
-nginx -c /home/wger/nginx-temp/nginx.conf
+# conf uses "daemon off" so logs stream to the container; background it here
+# and verify it survived startup.
+nginx -c /home/wger/nginx-temp/nginx.conf &
 sleep 1
 if ! pgrep -x nginx > /dev/null; then
     echo "[railway] nginx failed to start, not starting the server"
