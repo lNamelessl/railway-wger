@@ -1,6 +1,6 @@
 # Deploy and Host wger Workout Manager
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/wger-workout-manager)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/wger-workout)
 
 Self-hosted **wger** (2.8-dev, official `wger/server` image, digest-pinned) — the workout and
 nutrition manager with an exercise database, routine planner, weight and nutrition tracking,
