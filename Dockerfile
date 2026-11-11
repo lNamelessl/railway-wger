@@ -32,6 +32,7 @@ RUN chmod +x /railway-entrypoint.sh /home/wger/railway-entry-user.sh \
 ENV WGER_PORT=8000 \
     WGER_USE_GUNICORN=True \
     DJANGO_DEBUG=False \
+    DJANGO_DB_ENGINE=django.db.backends.postgresql \
     DJANGO_PERFORM_MIGRATIONS=True \
     DJANGO_COLLECTSTATIC_ON_STARTUP=True \
     DJANGO_CLEAR_STATIC_FIRST=False \
