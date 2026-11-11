@@ -23,9 +23,9 @@ container instead of a separate sidecar (Railway volumes cannot be shared across
 
 - **web** — wrapper image built from the pinned `wger/server` digest; volume at `/home/wger/media`
   (user uploads, downloaded exercise images, JWT keypair); healthcheck at `/api/v2/version`.
-- **celery** — stock `wger/server` image with a start command running a combined Celery
-  worker and beat scheduler (`celery worker -B`); handles the weekly exercise and ingredient
-  sync and the API cache warming.
+- **celery** — the same digest-pinned image with a start command running a combined Celery
+  worker and beat scheduler (`celery worker -B`, volume at `/home/wger/beat`); handles the
+  weekly exercise and ingredient sync and the API cache warming.
 - **Postgres** — Railway's Postgres plugin; wired via `${{Postgres.*}}` references.
 - **Redis** — Railway's Redis plugin; Django cache (db 1), Celery broker and backend (db 2).
 
